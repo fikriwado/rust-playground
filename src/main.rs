@@ -35,3 +35,25 @@ fn static_typing_test()
     // name = 15;
     println!("Hello {}", name);
 }
+
+#[test]
+fn shadowing_test()
+{
+    let name = "Moch Fikri Khoirurrizal";
+    println!("Hello {}", name);
+
+    let name = 15;
+    println!("Hello {}", name);
+}
+
+/*
+    Komentar ajah bos ini mah
+    Komentar ajah bos ini mah
+    Komentar ajah bos ini mah
+*/
+#[test]
+fn comment_test()
+{
+    //Ini komen juga bos
+    println!("Hello");
+}
