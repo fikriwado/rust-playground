@@ -74,3 +74,32 @@ fn number_test()
     let b: f32 = 10.5;
     println!("{}", b);
 }
+
+#[test]
+fn number_conversion_test()
+{
+    let a: i8 = 10;
+    println!("{}", a);
+
+    let b: i16 = a as i16;
+    println!("{}", b);
+
+    let c: i32 = a as i32;
+    println!("{}", c);
+
+    let d: i64 = 1000000000;
+    println!("{}", d);
+
+    let e: i8 = d as i8;
+    println!("{}", e);
+
+    let f: i32 = 32768;
+    println!("{}", f);
+
+    let g: i16 = f as i16;
+    println!("{}", g); // result: -32768
+    /*
+        - i16 => -32768 until 32767
+        - It's mean why "g" variable is -32768, because number overflow
+    */
+}
