@@ -3,20 +3,20 @@ fn main() {
 }
 
 #[test]
-fn hello_test()
+fn hello_test ()
 {
     println!("Hello Test");
 }
 
 #[test]
-fn variable_test()
+fn variable_test ()
 {
     let name = "Moch Fikri Khoirurrizal";
     println!("Hello {}", name);
 }
 
 #[test]
-fn mut_variable_test()
+fn mut_variable_test ()
 {
     let mut name = "Moch Fikri Khoirurrizal";
     println!("Hello {}", name);
@@ -26,7 +26,7 @@ fn mut_variable_test()
 }
 
 #[test]
-fn static_typing_test()
+fn static_typing_test ()
 {
     // let mut name = "Moch Fikri Khoirurrizal";
     let name = "Moch Fikri Khoirurrizal";
@@ -37,7 +37,7 @@ fn static_typing_test()
 }
 
 #[test]
-fn shadowing_test()
+fn shadowing_test ()
 {
     let name = "Moch Fikri Khoirurrizal";
     println!("Hello {}", name);
@@ -52,21 +52,21 @@ fn shadowing_test()
     Komentar ajah bos ini mah
 */
 #[test]
-fn comment_test()
+fn comment_test ()
 {
     //Ini komen juga bos
     println!("Hello");
 }
 
 #[test]
-fn explicit_test()
+fn explicit_test ()
 {
     let age: i32 = 20;
     println!("{}", age);
 }
 
 #[test]
-fn number_test()
+fn number_test ()
 {
     let a: i8 = 10;
     println!("{}", a);
@@ -76,7 +76,7 @@ fn number_test()
 }
 
 #[test]
-fn number_conversion_test()
+fn number_conversion_test ()
 {
     let a: i8 = 10;
     println!("{}", a);
@@ -105,7 +105,7 @@ fn number_conversion_test()
 }
 
 #[test]
-fn numeric_test()
+fn numeric_test ()
 {
     let a = 10;
     let b = 10;
@@ -121,7 +121,7 @@ fn numeric_test()
 }
 
 #[test]
-fn augmented_test()
+fn augmented_test ()
 {
     let mut a = 10;
     println!("{}", a);
@@ -134,7 +134,7 @@ fn augmented_test()
 }
 
 #[test]
-fn boolean_test()
+fn boolean_test ()
 {
     let a = true;
     let b: bool = false;
@@ -143,7 +143,7 @@ fn boolean_test()
 }
 
 #[test]
-fn comparison_test()
+fn comparison_test ()
 {
     let a = 10;
     let b = 20;
@@ -153,7 +153,7 @@ fn comparison_test()
 }
 
 #[test]
-fn boolean_operator_test()
+fn boolean_operator_test ()
 {
     let absen = 70;
     let nilai_akhir = 80;
@@ -167,7 +167,7 @@ fn boolean_operator_test()
 }
 
 #[test]
-fn char_type_test()
+fn char_type_test ()
 {
     let char1: char = 'a';
     let char2: char = 'b';
@@ -176,7 +176,7 @@ fn char_type_test()
 }
 
 #[test]
-fn tuple_test()
+fn tuple_test ()
 {
     // let data: (i32, f64, bool) = (10, 10.5, true);
 
@@ -250,14 +250,14 @@ fn two_dimenstional_test ()
 const MAXIMUM: i32 = 100;
 
 #[test]
-fn constant_test()
+fn constant_test ()
 {
     const MINIMUM: i32 = 0;
     println!("{}, {}", MINIMUM, MAXIMUM);
 }
 
 #[test]
-fn variable_scope_test()
+fn variable_scope_test ()
 {
     println!("{}", MAXIMUM);
 
@@ -270,4 +270,25 @@ fn variable_scope_test()
     }
 
     // println!("{}", wado); // error
+}
+
+#[test]
+fn stack_heap_test ()
+{
+    function_a();
+    function_b();
+}
+
+fn function_a ()
+{
+    let a = 10;
+    let b = String::from("Fikri");
+    println!("{} {}", a, b);
+}
+
+fn function_b ()
+{
+    let a = 10;
+    let b = String::from("Wado");
+    println!("{} {}", a, b);
 }
