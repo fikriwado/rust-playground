@@ -292,3 +292,25 @@ fn function_b ()
     let b = String::from("Wado");
     println!("{} {}", a, b);
 }
+
+#[test]
+fn string_test () {
+    let name = "  Moch Fikri Khoirurrizal  ";
+    let trim: &str = name.trim();
+
+    println!("{}", name);
+    println!("{}", trim);
+}
+
+#[test]
+fn string_type_test () {
+    let mut name: String = String::from("Moch Fikri");
+    println!("{}", name);
+
+    name.push_str(" Khoirurrizal");
+    println!("{}", name);
+
+    let new_name = name.replace("Moch", "M");
+    println!("{}", name);
+    println!("{}", new_name);
+}
