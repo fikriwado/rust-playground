@@ -132,3 +132,12 @@ fn augmented_test()
     a -= 10;
     println!("{}", a);
 }
+
+#[test]
+fn boolean_test()
+{
+    let a = true;
+    let b: bool = false;
+
+    println!("{} {}", a, b);
+}
