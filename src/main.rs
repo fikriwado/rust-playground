@@ -174,3 +174,36 @@ fn char_type_test()
 
     println!("{} {}", char1, char2);
 }
+
+#[test]
+fn tuple_test()
+{
+    // let data: (i32, f64, bool) = (10, 10.5, true);
+
+    let mut data: (i32, f64, bool) = (10, 10.5, true);
+    println!("{:?}", data);
+    // let a = data.0;
+    // let b = data.1;
+    // let c = data.2;
+
+    let (a,b,c) = data;
+    println!("{} {} {}", a, b, c);
+
+    data.0 = 20;
+    println!("{:?}", data);
+}
+
+fn unit()
+{
+    println!("Hello");
+}
+
+#[test]
+fn unit_test ()
+{
+    let result = unit();
+    println!("{:?}", result);
+
+    let test: () = ();
+    println!("{:?}", test);
+}
