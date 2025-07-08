@@ -227,3 +227,22 @@ fn array_test ()
     let length = array.len();
     println!("{}", length);
 }
+
+#[test]
+fn two_dimenstional_test ()
+{
+    let matrix: [[i32; 3]; 2] = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ];
+
+    println!("{:?}", matrix);
+    println!("{:?}", matrix[0]);
+    println!("{:?}", matrix[0][0]);
+    println!("{:?}", matrix[0][1]);
+    println!("{:?}", matrix[0][2]);
+    println!("{:?}", matrix[1]);
+    println!("{:?}", matrix[1][0]);
+    println!("{:?}", matrix[1][1]);
+    println!("{:?}", matrix[1][2]);
+}
