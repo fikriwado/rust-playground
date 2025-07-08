@@ -246,3 +246,28 @@ fn two_dimenstional_test ()
     println!("{:?}", matrix[1][1]);
     println!("{:?}", matrix[1][2]);
 }
+
+const MAXIMUM: i32 = 100;
+
+#[test]
+fn constant_test()
+{
+    const MINIMUM: i32 = 0;
+    println!("{}, {}", MINIMUM, MAXIMUM);
+}
+
+#[test]
+fn variable_scope_test()
+{
+    println!("{}", MAXIMUM);
+
+    let fikri = 1;
+
+    {
+        println!("{}", fikri);
+        let wado = 2;
+        println!("{}", wado);
+    }
+
+    // println!("{}", wado); // error
+}
