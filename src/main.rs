@@ -141,3 +141,27 @@ fn boolean_test()
 
     println!("{} {}", a, b);
 }
+
+#[test]
+fn comparison_test()
+{
+    let a = 10;
+    let b = 20;
+    let result: bool = a > b;
+
+    println!("{}", result);
+}
+
+#[test]
+fn boolean_operator_test()
+{
+    let absen = 70;
+    let nilai_akhir = 80;
+
+    let lulus_absen = absen >= 75;
+    let lulus_nilai_akhir = nilai_akhir >= 75;
+
+    let lulus = lulus_absen && lulus_nilai_akhir;
+
+    println!("{}", lulus);
+}
