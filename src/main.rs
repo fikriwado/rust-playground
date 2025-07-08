@@ -57,3 +57,20 @@ fn comment_test()
     //Ini komen juga bos
     println!("Hello");
 }
+
+#[test]
+fn explicit_test()
+{
+    let age: i32 = 20;
+    println!("{}", age);
+}
+
+#[test]
+fn number_test()
+{
+    let a: i8 = 10;
+    println!("{}", a);
+
+    let b: f32 = 10.5;
+    println!("{}", b);
+}
