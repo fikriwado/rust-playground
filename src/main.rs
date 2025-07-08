@@ -103,3 +103,32 @@ fn number_conversion_test()
         - It's mean why "g" variable is -32768, because number overflow
     */
 }
+
+#[test]
+fn numeric_test()
+{
+    let a = 10;
+    let b = 10;
+
+    let c = a * b;
+    println!("{}", c);
+
+    let d = a / b;
+    println!("{}", d);
+
+    let e = a + b;
+    println!("{}", e);
+}
+
+#[test]
+fn augmented_test()
+{
+    let mut a = 10;
+    println!("{}", a);
+
+    a += 10;
+    println!("{}", a);
+
+    a -= 10;
+    println!("{}", a);
+}
