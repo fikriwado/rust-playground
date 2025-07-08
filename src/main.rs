@@ -165,3 +165,12 @@ fn boolean_operator_test()
 
     println!("{}", lulus);
 }
+
+#[test]
+fn char_type_test()
+{
+    let char1: char = 'a';
+    let char2: char = 'b';
+
+    println!("{} {}", char1, char2);
+}
