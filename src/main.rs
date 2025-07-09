@@ -423,3 +423,16 @@ fn loop_label_test () {
         number += 1;
     }
 }
+
+#[test]
+fn while_loop_test () {
+    let mut counter = 0;
+
+    while counter <= 10 {
+        if counter % 2 == 0 {
+            println!("Counter : {}", counter)
+        }
+
+        counter += 1;
+    }
+}
