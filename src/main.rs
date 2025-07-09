@@ -314,3 +314,33 @@ fn string_type_test () {
     println!("{}", name);
     println!("{}", new_name);
 }
+
+#[test]
+fn ownership_rules_test () {
+    let a = 10;
+
+    {
+        let b = 10;
+        println!("{}", b);
+    }
+
+    println!("{}", a);
+}
+
+#[test]
+fn data_copy_test () {
+    let a = 10;
+    let b = a;
+
+    println!("{} {}", a, b);
+}
+
+#[test]
+fn ownership_movement_test () {
+    let name1: String = String::from("Moch Fikri Khoirurrizal");
+    println!("{}", name1);
+
+    let name2: String = name1; // pindah ownership
+    println!("{}", name2);
+    // println!("{}", name1); // error
+}
