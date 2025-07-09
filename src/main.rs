@@ -344,3 +344,11 @@ fn ownership_movement_test () {
     println!("{}", name2);
     // println!("{}", name1); // error
 }
+
+#[test]
+fn clone_test () {
+    let name1: String = String::from("Moch Fikri Khoirurrizal");
+    let name2: String = name1.clone();
+
+    println!("{} {}", name1, name2);
+}
