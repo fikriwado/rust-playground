@@ -595,3 +595,85 @@ fn full_name_handle_ownership_test () {
     println!("{}", first_name);
     println!("{}", last_name);
 }
+
+fn full_name_reference (first_name: &String, last_name: &String) -> String {
+    format!("{} {}", first_name, last_name)
+}
+
+#[test]
+fn full_name_reference_test () {
+    let first_name = String::from("Moch Fikri");
+    let last_name = String::from("Khoirurrizal");
+    let full_name = full_name_reference(&first_name, &last_name);
+
+    println!("{}", full_name);
+    println!("{}", first_name);
+    println!("{}", last_name);
+}
+
+// ------------------------------------
+// ----- CANNOT MUTABLE REFERENCE -----
+// ------------------------------------
+// fn change_value (value: &String) {
+//     value.push_str("Test");
+// }
+
+// #[test]
+// fn change_value_test () {
+//     let mut value = String::from("Fikri");
+//     change_value(&value);
+//     println!("{}", value);
+// }
+
+fn change_value (value: &mut String) {
+    value.push_str(" Test");
+}
+
+#[test]
+fn change_value_test () {
+    let mut value = String::from("Fikri");
+
+    let value_borrow = &mut value;
+    // let value_borrow_2 = &mut value; // error cannot muttable reference more than once (same value)
+
+    change_value(value_borrow);
+    // change_value(value_borrow_2); // error cannot muttable reference more than once (same value)
+
+    let mut value2 = String::from("Wado");
+    let value2_borrow = &mut value2;
+    change_value(value2_borrow);
+
+    println!("{}", value);
+}
+
+// ------------------------------------
+// --------- DANGLING POINTER ---------
+// ------------------------------------
+// fn full_name_dangling_pointer (first_name: &String, last_name: &String) -> &String {
+//     format!("{} {}", first_name, last_name)
+// }
+
+// #[test]
+// fn full_name_dangling_pointer_test () {
+//     let first_name = String::from("Moch Fikri");
+//     let last_name = String::from("Khoirurrizal");
+//     let full_name = full_name_dangling_pointer(&first_name, &last_name);
+
+//     println!("{}", full_name);
+//     println!("{}", first_name);
+//     println!("{}", last_name);
+// }
+
+#[test]
+fn slice_reference_test () {
+    let array: [i32; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    let slice1: &[i32] = &array[..];
+    println!("{:?}", slice1);
+
+    let slice2: &[i32] = &array[0..5];
+    println!("{:?}", slice2);
+
+    let slice3: &[i32] = &array[5..];
+    println!("{:?}", slice3);
+}
