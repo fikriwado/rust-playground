@@ -738,3 +738,12 @@ fn struct_person_test () {
     print_person(&person2);
     println!("{}", person.first_name);
 }
+
+struct GeoPoint(f64, f64);
+
+#[test]
+fn tupple_struct_test () {
+    let geo_point = GeoPoint(-6.123123, 71.321321);
+    println!("{}", geo_point.0);
+    println!("{}", geo_point.1);
+}
