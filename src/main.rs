@@ -688,3 +688,53 @@ fn string_slice_test () {
     let last_name: &str = &name[11..];
     println!("{}", last_name);
 }
+
+struct Person {
+    first_name: String,
+    middle_name: String,
+    last_name: String,
+    age: u8
+}
+
+fn print_person(person: &Person) {
+    println!("{}", person.first_name);
+    println!("{}", person.middle_name);
+    println!("{}", person.last_name);
+    println!("{}", person.age);
+}
+
+#[test]
+fn struct_person_test () {
+    let first_name = String::from("Moch");
+    let last_name = String::from("Khoirurrizal");
+
+    let person: Person = Person {
+        first_name,
+        middle_name: String::from("Fikri"),
+        last_name, // shorthand
+        age: 24
+    };
+
+    // println!("{}", person.first_name);
+    // println!("{}", person.middle_name);
+    // println!("{}", person.last_name);
+    // println!("{}", person.age);
+
+    // println!("{}", first_name); // error ownership
+    print_person(&person);
+
+    // let person2: Person = Person { ..person };
+    // print_person(&person2);
+
+    // println!("{}", person.first_name); // error ownership
+
+    let person2: Person = Person {
+        first_name: person.first_name.clone(),
+        middle_name: person.middle_name.clone(),
+        last_name: person.last_name.clone(),
+        ..person
+    };
+
+    print_person(&person2);
+    println!("{}", person.first_name);
+}
