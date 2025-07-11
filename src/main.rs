@@ -545,3 +545,53 @@ fn factorial_recursive_test () {
     let result = factorial_recursive(5);
     println!("{}", result);
 }
+
+fn print_number (number: i32) {
+    println!("number {}", number);
+}
+
+fn hi(name: String) {
+    println!("name {}", name);
+}
+
+#[test]
+fn hi_test () {
+    let number = 10;
+    print_number(number);
+    println!("{}", number);
+
+    let name = String::from("Fikri");
+    hi(name);
+    // println!("{}", name); // error ownership
+}
+
+fn full_name (first_name: String, last_name: String) -> String {
+    format!("{} {}", first_name, last_name)
+}
+
+#[test]
+fn full_name_test () {
+    let first_name = String::from("Moch Fikri");
+    let last_name = String::from("Khoirurrizal");
+    let full_name = full_name(first_name, last_name);
+
+    println!("{}", full_name);
+    // println!("{}", first_name); // error ownership
+    // println!("{}", last_name); // error ownership
+}
+
+fn full_name_handle_ownership (first_name: String, last_name: String) -> (String, String, String) {
+    let full_name = format!("{} {}", first_name, last_name);
+    (first_name, last_name, full_name)
+}
+
+#[test]
+fn full_name_handle_ownership_test () {
+    let first_name = String::from("Moch Fikri");
+    let last_name = String::from("Khoirurrizal");
+    let (first_name, last_name, full_name) = full_name_handle_ownership(first_name, last_name);
+
+    println!("{}", full_name);
+    println!("{}", first_name);
+    println!("{}", last_name);
+}
