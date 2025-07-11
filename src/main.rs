@@ -522,3 +522,26 @@ fn factorial_loop_test () {
     let result = factorial_loop(-10);
     println!("{}", result);
 }
+
+fn print_text (value: String, times: u32) {
+    if times == 0 { return; }
+    else { println!("{}", value) }
+
+    print_text(value, times -  1);
+}
+
+#[test]
+fn print_text_test () {
+    print_text(String::from("Fikri"), 10);
+}
+
+fn factorial_recursive (n: u32) -> u32 {
+    if n <= 1 { return 1; }
+    n * factorial_recursive(n - 1)
+}
+
+#[test]
+fn factorial_recursive_test () {
+    let result = factorial_recursive(5);
+    println!("{}", result);
+}
