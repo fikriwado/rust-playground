@@ -677,3 +677,14 @@ fn slice_reference_test () {
     let slice3: &[i32] = &array[5..];
     println!("{:?}", slice3);
 }
+
+#[test]
+fn string_slice_test () {
+    let name = String::from("Moch Fikri Koirurrizal");
+
+    let first_name: &str = &name[0..10];
+    println!("{}", first_name);
+
+    let last_name: &str = &name[11..];
+    println!("{}", last_name);
+}
