@@ -747,3 +747,11 @@ fn tupple_struct_test () {
     println!("{}", geo_point.0);
     println!("{}", geo_point.1);
 }
+
+struct Nothing;
+
+#[test]
+fn nothing_test () {
+    let _nothing1: Nothing = Nothing;
+    let _nothing2: Nothing = Nothing {};
+}
