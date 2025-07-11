@@ -480,3 +480,45 @@ fn range_inclusive_test () {
         println!("{}", array[i])
     }
 }
+
+fn say_hello () {
+    println!("Hello");
+}
+
+#[test]
+fn say_hello_test () {
+    say_hello();
+    say_hello();
+    say_hello();
+    say_hello();
+}
+
+fn say_goodbye (first_name: &str, last_name: &str) {
+    println!("Goodbye {} {}", first_name, last_name);
+}
+
+#[test]
+fn say_goodbye_test () {
+    say_goodbye("Moch Fikri", "Khoirurrizal");
+    say_goodbye("Fikri", "Wado");
+}
+
+fn factorial_loop (n: i32) -> i32 {
+    if n <= 0 { return 0; }
+
+    let mut result = 1;
+    for i in 1..=n  {
+        result *= i;
+    }
+
+    result
+}
+
+#[test]
+fn factorial_loop_test () {
+    let result = factorial_loop(5);
+    println!("{}", result);
+
+    let result = factorial_loop(-10);
+    println!("{}", result);
+}
