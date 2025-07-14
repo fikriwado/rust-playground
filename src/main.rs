@@ -696,6 +696,12 @@ struct Person {
     age: u8
 }
 
+impl Person {
+    fn say_hello (&self, name: &str) {
+        println!("Hello {}, my name is {}", name, self.first_name);
+    }
+}
+
 fn print_person(person: &Person) {
     println!("{}", person.first_name);
     println!("{}", person.middle_name);
@@ -741,6 +747,12 @@ fn struct_person_test () {
 
 struct GeoPoint(f64, f64);
 
+impl GeoPoint {
+    fn new(long: f64, lat: f64) -> GeoPoint {
+        GeoPoint(long, lat)
+    }
+}
+
 #[test]
 fn tupple_struct_test () {
     let geo_point = GeoPoint(-6.123123, 71.321321);
@@ -754,4 +766,27 @@ struct Nothing;
 fn nothing_test () {
     let _nothing1: Nothing = Nothing;
     let _nothing2: Nothing = Nothing {};
+}
+
+#[test]
+fn method_test () {
+    let person: Person = Person {
+        first_name: String::from("Moch"),
+        middle_name: String::from("Fikri"),
+        last_name: String::from("Khoirurrizal"),
+        age: 24
+    };
+
+    person.say_hello("Budi");
+
+    println!("{}", person.first_name);
+}
+
+#[test]
+fn associated_function_test () {
+    let geo_point: GeoPoint = GeoPoint::new(10.0, 10.0);
+    // geo_point.new(10.0, 10.0); // error -> new is associated function not method
+
+    println!("{}", geo_point.0);
+    println!("{}", geo_point.1);
 }
