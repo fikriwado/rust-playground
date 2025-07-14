@@ -880,3 +880,91 @@ fn match_value_test () {
         }
     }
 }
+
+#[test]
+fn range_patterns_test () {
+    let value = 100;
+
+    match value {
+        75..100 => { // sudah di dukung -> exclusively
+            println!("Great");
+        }
+        50..=74 => {
+            println!("Good");
+        }
+        25..=49 => {
+            println!("Not Bad");
+        }
+        0..=24 => {
+            println!("Bad");
+        }
+        other => {
+            println!("Invalid value {}", other);
+        }
+    }
+}
+
+#[test]
+fn struct_patterns_test () {
+    let point = GeoPoint::new(2.0, 1.0);
+
+    match point {
+        GeoPoint(long, 0.0) => {
+            println!("long : {}", long);
+        }
+        GeoPoint(0.0, lat) => {
+            println!("lat : {}", lat);
+        }
+        GeoPoint(long, lat) => {
+            println!("long : {}, lat : {}",long, lat);
+        }
+    }
+
+    let person: Person = Person {
+        first_name: String::from("Moch"),
+        middle_name: String::from("Fikri"),
+        last_name: String::from("Khoirurrizal"),
+        age: 24
+    };
+
+    match person {
+        Person { first_name, last_name, .. } => {
+            println!("{} {}", first_name, last_name);
+        }
+    }
+}
+
+#[test]
+fn ignoring_test () {
+    let point = GeoPoint::new(2.0, 1.0);
+
+    match point {
+        GeoPoint(long, _) => {
+            println!("long : {}", long);
+        }
+    }
+}
+
+
+#[test]
+fn ignoring_range_test () {
+    let value = 100;
+
+    match value {
+        75..=100 => { // sudah di dukung -> exclusively
+            println!("Great");
+        }
+        50..=74 => {
+            println!("Good");
+        }
+        25..=49 => {
+            println!("Not Bad");
+        }
+        0..=24 => {
+            println!("Bad");
+        }
+        _ => {
+            println!("Invalid value");
+        }
+    }
+}
