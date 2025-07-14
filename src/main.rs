@@ -981,3 +981,25 @@ fn match_expression_test () {
 
     println!("{}", result);
 }
+
+type Age = u8;
+type IdentityNumber = String;
+
+struct Customer {
+    id: IdentityNumber,
+    name: String,
+    age: Age
+}
+
+type Pelanggan = Customer;
+
+#[test]
+fn customer_test () {
+    let customer = Customer {
+        id: String::from("12341234"),
+        name: String::from("Fikri"),
+        age: 24
+    };
+
+    println!("{} {} {}", customer.id, customer.name, customer.age);
+}
