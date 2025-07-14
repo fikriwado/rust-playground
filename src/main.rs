@@ -812,7 +812,17 @@ enum Payment {
 
 impl Payment {
     fn pay (&self, amount: u32) {
-        println!("Paying amount {}", amount);
+        match self {
+            Payment::CreditCard(number) => {
+                println!("Paying with credit card {} amount {}", number, amount);
+            }
+            Payment::BankTransfer(bank, number) => {
+                println!("Paying with bank transfer {} {} amount {}", bank, number, amount);
+            }
+            Payment::EWallet(wallet, number) => {
+                println!("Paying with ewallet {} {} amount {}", wallet, number, amount);
+            }
+        }
     }
 }
 
@@ -826,4 +836,21 @@ fn payment_test () {
 
     let _payment3: Payment = Payment::EWallet(String::from("DANA"), String::from("12341234"));
     _payment3.pay(5000000);
+}
+
+#[test]
+fn enum_match_test () {
+    let level: Level = Level::Regular;
+
+    match level {
+        Level::Regular => {
+            println!("Regular");
+        }
+        Level::Premium => {
+            println!("Premium");
+        }
+        Level::Platinum => {
+            println!("Platinum");
+        }
+    }
 }
