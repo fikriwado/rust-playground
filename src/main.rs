@@ -790,3 +790,40 @@ fn associated_function_test () {
     println!("{}", geo_point.0);
     println!("{}", geo_point.1);
 }
+
+enum Level {
+    Regular,
+    Premium,
+    Platinum
+}
+
+#[test]
+fn enum_test () {
+    let _level1: Level = Level::Regular;
+    let _level2: Level = Level::Premium;
+    let _level3: Level = Level::Platinum;
+}
+
+enum Payment {
+    CreditCard(String),
+    BankTransfer(String, String),
+    EWallet(String, String)
+}
+
+impl Payment {
+    fn pay (&self, amount: u32) {
+        println!("Paying amount {}", amount);
+    }
+}
+
+#[test]
+fn payment_test () {
+    let _payment1: Payment = Payment::CreditCard(String::from("12341234"));
+    _payment1.pay(50000);
+
+    let _payment2: Payment = Payment::BankTransfer(String::from("BCA"), String::from("12341234"));
+    _payment2.pay(500000);
+
+    let _payment3: Payment = Payment::EWallet(String::from("DANA"), String::from("12341234"));
+    _payment3.pay(5000000);
+}
