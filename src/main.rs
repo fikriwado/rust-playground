@@ -854,3 +854,29 @@ fn enum_match_test () {
         }
     }
 }
+
+#[test]
+fn match_value_test () {
+    let name = "Fikri";
+
+    match name {
+        "Fikri" => {
+            println!("Hello Fikri");
+        }
+        "Wado" => {
+            println!("Hello Wado");
+        }
+        other => {
+            println!("Hello {}", other);
+        }
+    }
+
+    match name {
+        "Fikri" | "Wado" => {
+            println!("Hello Bos");
+        }
+        other => {
+            println!("Hello {}", other);
+        }
+    }
+}
