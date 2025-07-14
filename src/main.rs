@@ -968,3 +968,16 @@ fn ignoring_range_test () {
         }
     }
 }
+
+#[test]
+fn match_expression_test () {
+    let value = 9;
+    let result = match value {
+        0 => "nol",
+        1 => "satu",
+        2 => { "dua" },
+        _ => "invalid"
+    };
+
+    println!("{}", result);
+}
